@@ -129,6 +129,15 @@ $ ./bin/backup
 and all the trac projects will be backed up into a tarball to the backups directory, called 'backups'.
 
 
+Log rotation
+============
+
+Also, easyTrac provides a logrotate configuration at etc/logrotate/easytrac. So, if you want to rotate log
+files you only need to create a symbolic link to this file into /etc/logrotate.d/:
+
+$ sudo ln -s <installdir>/easyTrac/etc/logrotate/easytrac /etc/logrotate.d/
+
+
 Restore instructions
 ====================
 
