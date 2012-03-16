@@ -6,35 +6,36 @@ The easyTrac installer is a source-installation kit that installs a complete Tra
 
 Feedback/bugs to:
  * Email: manuel.viera.tirado at gmail.com
+ * Blog: http://blog.manuelviera.es
  * Twitter: http://twitter.com/mviera
 
 
 Installation instructions
 =========================
+
 The installer will compile Nginx and uWSGI and it will install all required python dependencies also.
 But for compile Nginx and uWSGI a few dependencies are required to be installed in the system. This dependencies 
 are the following:
 
 Dependencies
 ------------
-git
-python-dev
-gcc
-make
-libpcre3-dev
-libssl-dev 
-libxml2-dev
-libxslt-dev
-libsqlite3-dev
-libzzip-dev
-libapr1-dev
-libaprutil1-dev
-
+ * git
+ * python-dev
+ * gcc
+ * make
+ * libpcre3-dev
+ * libssl-dev 
+ * libxml2-dev
+ * libxslt-dev
+ * libsqlite3-dev
+ * libzzip-dev
+ * libapr1-dev
+ * libaprutil1-dev
+ 
 PLEASE NOTE: You can run the easyTrac installation as root or as a normal user.
 
 The installer config works out of the box, but if you want, you can edit buildout.cfg and 
 modify the following parameters:
-
  * nginx-http-port: http port that will be used for Nginx.
  * nginx-https-port: https port that will be used for Nginx (in case you want to use https).
  * supervisor-http-port: http port that will be used for supervisor.
@@ -70,14 +71,17 @@ $ ./bin/supervisorctl <command> <service-name>
 
 start services
 --------------
+
 $ ./bin/supervisorctl start nginx
 
 stop services
 -------------
+
 $ ./bin/supervisorctl stop nginx
 
 restart services
 ----------------
+
 $ ./bin/supervisorctl restart nginx
 
 Also, supervisor provides an especial word 'all', so we don't need to specify 
@@ -97,22 +101,26 @@ edit the [supervisor] part in buildout.cfg and run bin/buildout.
 
 How to create a Trac project
 ============================
+
 $ ./bin/trac-admin opt/trac/demo initenv demo sqlite:db/trac.db
 
 
 How to create a svn code repository
 ===================================
+
 $ ./bin/svnadmin create opt/svn/demo
 
 
 Uninstall instructions
 ======================
+
 1) Stop supervisord by running: ./bin/supervisorctl shutdown
 2) Remove the folder <installdir>/easyTrac
 
 
 Backup instructions
 ===================
+
 easyTrac includes a backup script. So, if you want to make a backup you only must to 
 execute the following command:
 
@@ -123,6 +131,7 @@ and all the trac projects will be backed up into a tarball to the backups direct
 
 Restore instructions
 ====================
+
 Also, easyTrac provides a restore script, useful to restore old backups. Its usage is as simple as follow:
 
 $ ./bin/restore backups/backup-file.tar.gz
