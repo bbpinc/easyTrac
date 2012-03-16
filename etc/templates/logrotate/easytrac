@@ -1,0 +1,14 @@
+rotate 30
+weekly
+missingok
+create
+compress
+delaycompress
+notifempty
+
+${config:log-directory}/*.log {
+    sharedscripts
+    postrotate
+        su - ${config:USER} -c "${buildout:bin-directory}/supervisorctl reload"
+    endscript
+}
